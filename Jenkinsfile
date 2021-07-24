@@ -26,6 +26,11 @@ pipeline {
                 echo 'docker image built'
             }
         }
+        stage ('Image Push') {
+            steps {
+                sh "docker push position-simulator:${commit_id}"
+            }
+        }
         stage('deploy') {
             steps {
                 sh "sed -i -r 's|richardchesterwood/k8s-fleetman-position-simulator:release2|position-simulator:${commit_id}|' workloads.yaml"
