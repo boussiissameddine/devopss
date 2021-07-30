@@ -25,7 +25,7 @@ spec:
   selector:
     matchLabels:
       app: position-simulator
-  replicas: 1
+  replicas: 4
   template: # template for the pods
     metadata:
       labels:
