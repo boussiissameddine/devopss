@@ -22,7 +22,7 @@ pipeline {
         stage ("image build") {
             steps {
                 echo 'building docker image'
-                sh "docker build -t 2alinfo7/position-simulator:${commit_id} ."
+                sh "docker build -t issambits/position-simulator:${commit_id} ."
                 echo 'docker image built'
             }
         }
