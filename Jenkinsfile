@@ -36,8 +36,8 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh "sed -i -r 's|richardchesterwood/k8s-fleetman-position-simulator:release2|issambits/position-simulator:${commit_id}|' DevOps/workloads.yaml"
-                sh 'kubectl apply -f workloads.yaml'
+                sh "sed -i -r 's|richardchesterwood/k8s-fleetman-position-simulator:release2|issambits/position-simulator:${commit_id}|'workloads.yaml"
+                sh "kubectl apply -f workloads.yaml"
             }
         }
     }
