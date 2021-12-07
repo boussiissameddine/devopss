@@ -29,7 +29,7 @@ pipeline {
         stage ("image push") {
             steps {
                 echo 'pushing docker image'
-                sh "docker push 2alinfo7/position-simulator:${commit_id} "
+                sh "docker push issambits/position-simulator:${commit_id} "
                 echo 'docker image pushed'
             }
         }
