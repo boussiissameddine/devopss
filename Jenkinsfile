@@ -11,6 +11,16 @@ pipeline {
                 }
             }
         }
+        stage ('code quality') {
+            steps {
+                echo 'testing code quality'
+               sh "mvn clean verify sonar:sonar \
+                    -Dsonar.projectKey=position-similator \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=c267b831e4ecea5ff75b1aa7f999a0054394a97d"
+                echo 'code quality test complete'
+            }
+        }
         stage ('build') {
             steps {
                 echo 'building maven workload'
